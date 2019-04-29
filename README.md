@@ -1,0 +1,1 @@
+This project is about learning high-level programming languages such as PYTHON.
