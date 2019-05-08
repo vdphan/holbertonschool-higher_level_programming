@@ -35,7 +35,9 @@ int is_palindrome(listint_t **head)
 	listint_t *tmp = NULL;
 	listint_t *tmp2 = NULL;
 
-	while (fast && fast->next->next)
+	if (*head)
+		return (1);
+	while (fast && fast->next && fast->next->next)
 	{
 		slow = slow->next;
 		fast = fast->next->next;
