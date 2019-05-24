@@ -1,0 +1,35 @@
+This is a doctest that checks edge cases for a function that prints a text with 2 new lines after each of these characters: ., ? and :
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+>>> text_indentation("""My. name? is: John Wick""")
+My.
+<BLANKLINE>
+name?
+<BLANKLINE>
+is:
+<BLANKLINE>
+John Wick
+
+>>> text_indentation(2)
+Traceback (most recent call last):
+TypeError: text must be a string
+
+>>> text_indentation("""Hello     ?""")
+Hello     ?
+<BLANKLINE>
+
+>>> text_indentation("""hi?\n\nThere""")
+hi?
+<BLANKLINE>
+There
+
+>>> text_indentation("""hi?\n\n:\n\nThere""")
+hi?
+<BLANKLINE>
+:
+<BLANKLINE>
+There
+
+>>> text_indentation("")
+
+>>> text_indentation("   ")
+
