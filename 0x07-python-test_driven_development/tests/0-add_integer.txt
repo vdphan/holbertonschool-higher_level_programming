@@ -1,4 +1,9 @@
 This is a doctest that checks edge cases for a function that add 2 integers.
+========================
+
+Using ``add_integer``
+-------------------
+
 >>> add_integer = __import__('0-add_integer').add_integer
 >>> add_integer(1, 2)
 3
@@ -22,3 +27,11 @@ TypeError: a must be an integer
 
 >>> add_integer(-2)
 96
+
+>>> add_integer(5, float("inf"))
+Traceback (most recent call last):
+OverflowError: cannot convert float infinity to integer
+
+>>> add_integer(6, float("nan"))
+Traceback (most recent call last):
+ValueError: cannot convert float NaN to integer
