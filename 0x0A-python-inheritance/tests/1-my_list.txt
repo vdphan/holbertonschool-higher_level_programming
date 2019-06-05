@@ -1,0 +1,23 @@
+This is a doctest that checks edge cases for prints the  sorted list.
+========================
+
+Using ``MyList``
+-------------------
+
+>>> MyList = __import__('1-my_list').MyList
+>>> mylist = MyList()
+
+>>> mylist.print_sorted()
+[]
+
+>>> mylist.append(2)
+>>> mylist.append(1)
+>>> mylist.print_sorted()
+[1, 2]
+
+
+>>> mylist.append(-1)
+>>> mylist.append(-2)
+>>> mylist.append(0)
+>>> mylist.print_sorted()
+[-2, -1, 0, 1, 2]
