@@ -1,0 +1,28 @@
+This is a doctest that checks edge cases for integer validator.
+========================
+
+Using ``Base``
+-------------------
+
+>>> Base = __import__('7-base_geometry').BaseGeometry
+>>> b = Base()
+
+>>> b.integer_validator("my_int", 12)
+
+>>> try:
+...     b.integer_validator("Hey", "Wick")
+... except Exception as f:
+...     print("[{}] {}".format(f.__class__.__name__, f))
+[TypeError] Hey must be an integer
+
+... try:
+...    b.integer_validator("Age", 0)
+... except Exception as f:
+...    print("[{}] {}".format(f.__class__.__name__, f))
+[ValueError] Age must be greater than 0
+
+>>> try:
+...     b.integer_validator("len", -10)
+... except Exception as f:
+...     print("[{}] {}".format(f.__class__.__name__, f))
+[ValueError] len must be greater than 0
