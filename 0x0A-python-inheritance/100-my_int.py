@@ -8,4 +8,8 @@ class MyInt(int):
     """a class that inherits from int"""
     def __ne__(self, other):
         """== and != operators inverted"""
-        super().__eq__(self)
+        return super().__eq__(other)
+
+    def __eq__(self, other):
+        """== and != operators inverted"""
+        return super().__ne__(other)
