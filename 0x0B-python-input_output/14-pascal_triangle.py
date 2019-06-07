@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 def pascal_triangle(n):
-    """returns a list of lists of integers representing the Pascal’s triangle"""
+    """returns a list of lists of integers liked the Pascal’s triangle"""
     l = []
     if n <= 0:
         return l
