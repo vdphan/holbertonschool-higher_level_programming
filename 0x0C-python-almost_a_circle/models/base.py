@@ -7,6 +7,7 @@ This module is to create a class Base.
 class Base:
     """This class is the “base” of all other classes"""
     __nb_objects = 0
+
     def __init__(self, id=None):
         """retrieve id"""
         if id is not None:
