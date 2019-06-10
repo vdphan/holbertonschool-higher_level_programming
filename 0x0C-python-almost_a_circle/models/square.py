@@ -15,6 +15,37 @@ class Square(Rectangle):
 
     def __str__(self):
         """return an string"""
-        s = "[Rectangle] ({}) {}/{} - {}".\
-            format(self.id, self.x, self.y, self.width, self.height)
+        s = "[Square] ({}) {}/{} - {}".\
+            format(self.id, self.x, self.y, self.width)
         return s
+
+    @property
+    def size(self):
+        """retrieve size"""
+        return self.width
+
+    @size.setter
+    def size(self, value):
+        """set value for size"""
+        self.width = value
+
+    def update(self, *args, **kwargs):
+        """function that  assigns attributes"""
+        att = ["id", "size", "x", "y"]
+        for idx, e in enumerate(args):
+            setattr(self, att[idx], e)
+
+        if not args and len(args) == 0:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
+
+    def to_dictionary(self):
+        """returns the dictionary representation of a Square:"""
+        d = dict()
+        for key, value in self.__dict__.items():
+            a = key.split("__")[-1]
+            if a == "width" or a == "height":
+                d["size"] = value
+            else:
+                d[a] = value
+        return d
