@@ -79,5 +79,30 @@ class Rectangle(Base):
 
     def display(self):
         """that prints in stdout the Rectangle instance with the character #"""
+        for a in range(self.__y):
+            print()
         for i in range(self.__height):
+            print(" " * self.__x, end="")
             print("#" * self.__width)
+
+    def __str__(self):
+        """return an string"""
+        s = "[Rectangle] ({}) {}/{} - {}/{}".\
+            format(self.id, self.__x, self.__y, self.__width, self.__height)
+        return s
+
+    def update(self, *args,  **kwargs):
+        """assigns an argument to each attribute:"""
+        for ele in args:
+            if type(ele) is not int:
+                raise TypeError("{} must be an integer".format(ele))
+        att = ["id", "width", "height", "x", "y"]
+        for idx in range(len(args)):
+            for at in range(len(att)):
+                if at == idx:
+                    setattr(self, att[at], args[idx])
+                    break
+
+        if not args or len(args) == 0:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
