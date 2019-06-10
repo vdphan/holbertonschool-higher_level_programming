@@ -106,3 +106,11 @@ class Rectangle(Base):
         if not args or len(args) == 0:
             for key, value in kwargs.items():
                 setattr(self, key, value)
+
+    def to_dictionary(self):
+        """returns the dictionary representation of a Rectangle"""
+        d = dict()
+        for key, value in self.__dict__.items():
+            a = key.split("__")[-1]
+            d[a] = value
+        return d
