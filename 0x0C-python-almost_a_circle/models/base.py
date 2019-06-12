@@ -37,9 +37,9 @@ class Base:
                 for obj in list_objs:
                     l.append(obj.to_dictionary())
                 result = cls.to_json_string(l)
-                return f.write(result)
+                f.write(result)
             else:
-                return f.write(l)
+                f.write(l)
 
     @staticmethod
     def from_json_string(json_string):

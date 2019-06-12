@@ -93,9 +93,9 @@ class Rectangle(Base):
 
     def update(self, *args,  **kwargs):
         """assigns an argument to each attribute:"""
-        for ele in args:
-            if type(ele) is not int:
-                raise TypeError("{} must be an integer".format(ele))
+#        for ele in args:
+#            if type(ele) is not int:
+#                raise TypeError("args  must be an integer")
         att = ["id", "width", "height", "x", "y"]
         for idx in range(len(args)):
             for at in range(len(att)):
