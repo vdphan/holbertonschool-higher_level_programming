@@ -243,8 +243,37 @@ class test_rectangle(unittest.TestCase):
 
     def test_update_1_errors(self):
         """error tests for kwargs"""
-        
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            r3 = Rectangle(10, 10, 10, 10)
+            r3.update(width=-1)
 
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            r4 = Rectangle(10, 10, 10, 10)
+            r4.update(width="2")
+
+        with self.assertRaisesRegex(TypeError, "height must be an integer"):
+            r5 = Rectangle(10, 10, 10, 10)
+            r5.update(height="2")
+
+        with self.assertRaisesRegex(ValueError, "height must be > 0"):
+            r5 = Rectangle(10, 10, 10, 10)
+            r5.update(height=-2)
+
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            r5 = Rectangle(10, 10, 10, 10)
+            r5.update(y="5")
+
+        with self.assertRaisesRegex(ValueError, "y must be >= 0"):
+            r5 = Rectangle(10, 10, 10, 10)
+            r5.update(y=-5)
+
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            r5 = Rectangle(10, 10, 10, 10)
+            r5.update(x="3")
+
+        with self.assertRaisesRegex(ValueError, "x must be >= 0"):
+            r5 = Rectangle(10, 10, 10, 10)
+            r5.update(x=-3)
 
 
 
