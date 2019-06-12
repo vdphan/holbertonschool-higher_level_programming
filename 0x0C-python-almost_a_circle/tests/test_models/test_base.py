@@ -38,6 +38,10 @@ class testbase(unittest.TestCase):
         b6 = Base(5)
         self.assertEqual(b6.id, 5)
 
+    def test_id_is_Nan(self):
+        b = Base(float("nan"))
+        self.assertNotEqual(b.id, float("nan"))
+
     def test_id_is_not_integer(self):
         b7 = Base("hi")
         self.assertEqual(b7.id, "hi")
