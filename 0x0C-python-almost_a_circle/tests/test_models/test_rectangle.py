@@ -185,3 +185,68 @@ class test_rectangle(unittest.TestCase):
         self.assertEqual(r2.height, 3)
         self.assertEqual(r2.x, 4)
         self.assertEqual(r2.y, 5)
+
+    def test_update_0_error(self):
+        """test error for update function"""
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            r3 = Rectangle(10, 10, 10, 10)
+            r3.update(2, -2)
+
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            r4 = Rectangle(10, 10, 10, 10)
+            r4.update(2, "2")
+
+        with self.assertRaisesRegex(TypeError, "height must be an integer"):
+            r5 = Rectangle(10, 10, 10, 10)
+            r5.update(2, 2, "2")
+
+        with self.assertRaisesRegex(ValueError, "height must be > 0"):
+            r5 = Rectangle(10, 10, 10, 10)
+            r5.update(2, 2, -2)
+
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            r5 = Rectangle(10, 10, 10, 10)
+            r5.update(2, 2, 2, 3, "5")
+
+        with self.assertRaisesRegex(ValueError, "y must be >= 0"):
+            r5 = Rectangle(10, 10, 10, 10)
+            r5.update(2, 2, 2, 3, -5)
+
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            r5 = Rectangle(10, 10, 10, 10)
+            r5.update(2, 2, 2, "3")
+
+        with self.assertRaisesRegex(ValueError, "x must be >= 0"):
+            r5 = Rectangle(10, 10, 10, 10)
+            r5.update(2, 2, 2, -3)
+
+    def test_update_1(self):
+        """test for kwargs"""
+        r1 = Rectangle(10, 10, 10, 10)
+        r1.update(height=1)
+        self.assertEqual(str(r1), "[Rectangle] (1) 10/10 - 10/1")
+
+        r1.update(width=1, x=2)
+        self.assertEqual(str(r1), "[Rectangle] (1) 2/10 - 1/1")
+
+        r1.update(y=1, width=2, x=3, id=89)
+        self.assertEqual(str(r1), "[Rectangle] (89) 3/1 - 2/1")
+
+        r1.update(x=1, height=2, y=3, width=4)
+        self.assertEqual(str(r1), "[Rectangle] (89) 1/3 - 4/2")
+
+    def test_update_1_args_not_empty(self):
+        """test for kwargs if args is empty or doesn't exist"""
+        r1 = Rectangle(10, 10, 10, 10)
+        r1.update(89, x=1, height=2, y=3, width=4)
+        self.assertEqual(str(r1), "[Rectangle] (89) 10/10 - 10/10")
+
+    def test_update_1_errors(self):
+        """error tests for kwargs"""
+        
+
+
+
+
+    if __name__ == '__main__':
+        unittest.main()
