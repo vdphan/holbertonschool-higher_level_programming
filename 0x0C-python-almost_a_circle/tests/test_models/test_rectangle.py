@@ -275,6 +275,19 @@ class test_rectangle(unittest.TestCase):
             r5 = Rectangle(10, 10, 10, 10)
             r5.update(x=-3)
 
+    def test_rectangle_to_dictionaries(self):
+        """test for to dictionaries"""
+        r1 = Rectangle(10, 2, 1, 9)
+        self.assertEqual(str(r1), "[Rectangle] (1) 1/9 - 10/2")
+        r = r1.to_dictionary()
+        self.assertEqual(r, {'x': 1, 'y': 9, 'id': 1, 'height': 2, 'width': 10})
+        self.assertIs(type(r), dict)
+
+        r2 = Rectangle(1, 1)
+        self.assertEqual(str(r2), "[Rectangle] (2) 0/0 - 1/1")
+        r2.update(**r)
+        self.assertEqual(str(r2), "[Rectangle] (1) 1/9 - 10/2")
+        self.assertFalse(r1 == r2)
 
 
     if __name__ == '__main__':
