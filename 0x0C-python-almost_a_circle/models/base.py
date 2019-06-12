@@ -68,7 +68,6 @@ class Base:
         l = []
         with open(fname, "r") as f:
             output = cls.from_json_string(f.read())
-            print(output)
             for ele in output:
                 l.append(cls.create(**ele))
             return l
