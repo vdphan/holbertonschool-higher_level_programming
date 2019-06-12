@@ -39,7 +39,7 @@ class Base:
                 result = cls.to_json_string(l)
                 f.write(result)
             else:
-                f.write(l)
+                f.write("[]")
 
     @staticmethod
     def from_json_string(json_string):
@@ -60,9 +60,9 @@ class Base:
     def load_from_file(cls):
         """function returns a list of instances"""
         fname = cls.__name__ + ".json"
-        l = []
         if not os.path.exists(fname):
-            return l
+            return []
+        l = []
         with open(fname, "r") as f:
             output = cls.from_json_string(f.read())
             print(output)
