@@ -8,6 +8,7 @@ import unittest
 import io
 import contextlib
 import json
+import os
 
 from models.base import Base
 from models.rectangle import Rectangle
@@ -103,10 +104,12 @@ class testbase(unittest.TestCase):
         Square.save_to_file(None)
         with open("Square.json", 'r') as f:
             self.assertEqual(json.loads(f.read()), [])
+            os.remove("Square.json")
 
         Square.save_to_file([])
         with open("Square.json", 'r') as f1:
             self.assertEqual(json.loads(f1.read()), [])
+            os.remove("Square.json")
 
         Square.save_to_file([Square(1)])
         a = [{'id': 1, 'size': 1, 'y': 0, 'x': 0}]
