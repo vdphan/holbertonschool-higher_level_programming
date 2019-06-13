@@ -29,10 +29,8 @@ class test_rectangle(unittest.TestCase):
         self.assertEqual(r2.x, 0)
         self.assertEqual(r2.y, 0)
 
-
         r3 = Rectangle(10, 2, 0, 0, 12)
         self.assertEqual(r3.id, 12)
-
 
     def test_with_width_getter_setter(self):
         """test getter and setter function"""
@@ -84,7 +82,6 @@ class test_rectangle(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "x must be >= 0"):
             Rectangle(10, 2, -1)
 
-
     def test_with_y_error(self):
         """y error test"""
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
@@ -117,7 +114,6 @@ class test_rectangle(unittest.TestCase):
         with contextlib.redirect_stdout(f):
             r1.display()
         self.assertEqual(f.getvalue(), "##\n##\n##\n")
-
 
         r2 = Rectangle(2, 1)
         f1 = io.StringIO()
@@ -161,7 +157,6 @@ class test_rectangle(unittest.TestCase):
         with contextlib.redirect_stdout(f6):
             r2.display()
         self.assertEqual(f6.getvalue(), " ###\n ###\n")
-
 
     def test_update_0(self):
         """check update"""
@@ -280,7 +275,8 @@ class test_rectangle(unittest.TestCase):
         r1 = Rectangle(10, 2, 1, 9)
         self.assertEqual(str(r1), "[Rectangle] (1) 1/9 - 10/2")
         r = r1.to_dictionary()
-        self.assertEqual(r, {'x': 1, 'y': 9, 'id': 1, 'height': 2, 'width': 10})
+        self.assertEqual(r,
+                         {'x': 1, 'y': 9, 'id': 1, 'height': 2, 'width': 10})
         self.assertIs(type(r), dict)
 
         r2 = Rectangle(1, 1)
@@ -288,7 +284,6 @@ class test_rectangle(unittest.TestCase):
         r2.update(**r)
         self.assertEqual(str(r2), "[Rectangle] (1) 1/9 - 10/2")
         self.assertFalse(r1 == r2)
-
 
     if __name__ == '__main__':
         unittest.main()

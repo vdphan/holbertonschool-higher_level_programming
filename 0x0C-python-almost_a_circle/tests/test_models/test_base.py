@@ -62,7 +62,8 @@ class testbase(unittest.TestCase):
         r1 = Rectangle(10, 7, 2, 8)
         d = r1.to_dictionary()
         j = Base.to_json_string([d])
-        self.assertEqual(d, {'x': 2, 'width': 10, 'id': 1, 'height': 7, 'y': 8})
+        self.assertEqual(d,
+                         {'x': 2, 'width': 10, 'id': 1, 'height': 7, 'y': 8})
         self.assertIs(type(d), dict)
         self.assertEqual([d], json.loads(j))
 
@@ -75,7 +76,7 @@ class testbase(unittest.TestCase):
         """test for function save to file"""
         r1 = Rectangle(10, 7, 2, 8)
         r2 = Rectangle(2, 4)
-        a = [{"y": 8, "x": 2, "id": 1, "width": 10, "height": 7}, \
+        a = [{"y": 8, "x": 2, "id": 1, "width": 10, "height": 7},
              {"y": 0, "x": 0, "id": 2, "width": 2, "height": 4}]
         Rectangle.save_to_file([r1, r2])
         with open("Rectangle.json", 'r') as f:
@@ -88,17 +89,16 @@ class testbase(unittest.TestCase):
             self.assertEqual(json.loads(f.read()), [])
 
     def test_save_to_file_None(self):
-         """test if list objects is None"""
-         Rectangle.save_to_file([])
-         with open("Rectangle.json", 'r') as f:
-             self.assertEqual(json.loads(f.read()), [])
+        """test if list objects is None"""
+        Rectangle.save_to_file([])
+        with open("Rectangle.json", 'r') as f:
+            self.assertEqual(json.loads(f.read()), [])
 
     def test_from_json_string(self):
         """test for function from_json_"""
         list_input = [
-        {'id': 89, 'width': 10, 'height': 4},
-        {'id': 7, 'width': 1, 'height': 7}
-    ]
+            {'id': 89, 'width': 10, 'height': 4},
+            {'id': 7, 'width': 1, 'height': 7}]
         json_list_input = Rectangle.to_json_string(list_input)
         list_output = Rectangle.from_json_string(json_list_input)
 
@@ -154,10 +154,6 @@ class testbase(unittest.TestCase):
         d = ["[Square] (1) 0/0 - 5", "[Square] (2) 9/1 - 7"]
         self.assertEqual(str(ls[0]), d[0])
         self.assertEqual(str(ls[1]), d[1])
-
-
-
-
 
     if __name__ == '__main__':
         unittest.main()

@@ -28,7 +28,6 @@ class test_square(unittest.TestCase):
             s1.display()
         self.assertEqual(f.getvalue(), "#####\n#####\n#####\n#####\n#####\n")
 
-
         s2 = Square(2, 2)
         self.assertEqual(str(s2), "[Square] (2) 2/0 - 2")
         self.assertEqual(s2.area(), 4)
@@ -45,7 +44,6 @@ class test_square(unittest.TestCase):
             s3.display()
         self.assertEqual(f2.getvalue(), "\n\n\n ###\n ###\n ###\n")
 
-
     def test_square_10_instance(self):
         """test with instance"""
         s1 = Square(10, 2)
@@ -56,7 +54,6 @@ class test_square(unittest.TestCase):
         self.assertEqual(s2.x, 10)
         self.assertEqual(s2.y, 0)
 
-
         s3 = Square(2, 0, 0, 12)
         self.assertEqual(s3.id, 12)
 
@@ -66,7 +63,6 @@ class test_square(unittest.TestCase):
         self.assertEqual(s.size, 10)
         s.size = 2
         self.assertEqual(s.size, 2)
-
 
         s2 = Square(5)
         self.assertEqual(str(s2), "[Square] (2) 0/0 - 5")
