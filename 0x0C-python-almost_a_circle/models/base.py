@@ -77,10 +77,20 @@ class Base:
     def save_to_file_csv(cls, list_objs):
         """save to file csv"""
         fname = cls.__name__ + ".csv"
+        l = []
+        for obj in list_objs:
+            if cls.__name__ == "Rectangle":
+                ob = [obj.id, obj.width, obj.height,
+                      obj.x, obj.y]
+            elif cls.__name__ == "Square":
+                ob = [obj.id, obj.size,
+                      obj.x, obj.y]
+            l.append(ob)
         with open(fname, "w") as csvfile:
             c = csv.writer(csvfile)
             if list_objs is not None:
-                c.writerow(list_objs)
+                for e in l:
+                    c.writerow(e)
             else:
                 c.writerow([])
 
@@ -94,6 +104,12 @@ class Base:
         with open(fname, "r") as f:
             d = csv.reader(f, delimiter=',')
             for row in d:
-                for ele in row:
-                    l.append(ele)
+                row = [int(x) for x in row]
+                if cls.__name__ == "Rectangle":
+                    d = {"id": row[0], "width": row[1], "height": row[2],
+                         "x": row[3], "y": row[4]}
+                elif cls.__name__ == "Square":
+                    d = {"id": row[0], "size": row[1],
+                         "x": row[2], "y": row[3]}
+                l.append(cls.create(**d))
             return l
