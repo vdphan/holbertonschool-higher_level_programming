@@ -64,6 +64,9 @@ class test_rectangle(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "height must be > 0"):
             r4 = Rectangle(10, -2)
 
+        with self.assertRaisesRegex(ValueError, "height must be > 0"):
+            Rectangle(2, 0)
+
     def test_with_width_error(self):
         """width error test"""
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
@@ -72,6 +75,9 @@ class test_rectangle(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "width must be > 0"):
             r5 = Rectangle(3, 4)
             r5.width = -10
+
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            Rectangle(0, 2)
 
     def test_with_x_error(self):
         """x error test"""
@@ -90,6 +96,14 @@ class test_rectangle(unittest.TestCase):
 
         with self.assertRaisesRegex(ValueError, "y must be >= 0"):
             Rectangle(10, 2, 1, -10)
+
+    def test_with_x_and_y_error(self):
+        """test for type x and y"""
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Rectangle(1, 2, "3")
+
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Rectangle(1, 2, 3, "4")
 
     def test_with_no_argument(self):
         """pass no argument to rectangle"""

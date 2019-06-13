@@ -78,6 +78,27 @@ class test_square(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "width must be > 0"):
             s.size = -2
 
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Square("1")
+
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Square(1, "2")
+
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Square(1, 2, "3")
+
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            Square(-1)
+
+        with self.assertRaisesRegex(ValueError, "x must be >= 0"):
+            Square(1, -2)
+
+        with self.assertRaisesRegex(ValueError, "y must be >= 0"):
+            Square(1, 2, -3)
+
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            Square(0)
+
     def test_square_update_12(self):
         """test for square update"""
         s1 = Square(5)

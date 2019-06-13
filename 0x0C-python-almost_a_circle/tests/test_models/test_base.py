@@ -94,6 +94,25 @@ class testbase(unittest.TestCase):
         with open("Rectangle.json", 'r') as f:
             self.assertEqual(json.loads(f.read()), [])
 
+        Rectangle.save_to_file(None)
+        with open("Rectangle.json", 'r') as f1:
+            self.assertEqual(json.loads(f1.read()), [])
+
+    def test_save_tofile_Square(self):
+        """test for Square"""
+        Square.save_to_file(None)
+        with open("Square.json", 'r') as f:
+            self.assertEqual(json.loads(f.read()), [])
+
+        Square.save_to_file([])
+        with open("Square.json", 'r') as f1:
+            self.assertEqual(json.loads(f1.read()), [])
+
+        Square.save_to_file([Square(1)])
+        a = [{'id': 1, 'size': 1, 'y': 0, 'x': 0}]
+        with open("Square.json", 'r') as f2:
+            self.assertEqual(json.loads(f2.read()), a)
+
     def test_from_json_string(self):
         """test for function from_json_"""
         list_input = [
