@@ -6,6 +6,7 @@ This module is to create a class Base.
 
 import json
 import os.path
+import csv
 
 
 class Base:
@@ -70,4 +71,24 @@ class Base:
             output = cls.from_json_string(f.read())
             for ele in output:
                 l.append(cls.create(**ele))
+            return l
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """save to file csv"""
+        fname = cls.__name__ + ".csv"
+        with open(fname, "w") as csvfile:
+            c = csv.writer(csvfile)
+            c.writerow(list_objs)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """load from file csv"""
+        fname = cls.__name__ + ".csv"
+        l = []
+        with open(fname, "r") as f:
+            d = csv.reader(f, delimiter=',')
+            for row in d:
+                for ele in row:
+                    l.append(ele)
             return l
