@@ -79,12 +79,17 @@ class Base:
         fname = cls.__name__ + ".csv"
         with open(fname, "w") as csvfile:
             c = csv.writer(csvfile)
-            c.writerow(list_objs)
+            if list_objs is not None:
+                c.writerow(list_objs)
+            else:
+                c.writerow([])
 
     @classmethod
     def load_from_file_csv(cls):
         """load from file csv"""
         fname = cls.__name__ + ".csv"
+        if not os.path.exists(fname):
+            return []
         l = []
         with open(fname, "r") as f:
             d = csv.reader(f, delimiter=',')
