@@ -17,5 +17,5 @@ if __name__ == "__main__":
     if tables:
         print("{}: {}".format(tables.id, tables.name))
     else:
-        pring("Nothing")
+        print("Nothing")
     session.close()
