@@ -1,10 +1,9 @@
 #!/usr/bin/python3
 # a Python script that fetches https://intranet.hbtn.io/status
-import urllib.request
+import requests
 
-
-with urllib.request.urlopen('https://intranet.hbtn.io/status') as response:
-    a = response.read()
+if __name__ == "__main__":
+    r = requests.get('https://intranet.hbtn.io/status')
     print("Body response:")
-    print("\t- type: {}".format(type(a.decode("utf-8"))))
-    print("\t- content: {}".format(a))
+    print("\t- type: {}".format(type(r.text)))
+    print("\t- content: {}".format(r.text))
