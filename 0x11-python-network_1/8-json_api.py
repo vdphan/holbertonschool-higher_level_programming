@@ -13,7 +13,7 @@ if __name__ == "__main__":
     elif len(sys.argv) == 2:
         da = {"q": sys.argv[1]}
     r = requests.post("http://0.0.0.0:5000/search_user", data=da)
-    f r.headers.get('content-type') != "application/json":
+    if r.headers.get('content-type') != "application/json":
         print("Not a valid JSON")
     else:
         if not r.json():
