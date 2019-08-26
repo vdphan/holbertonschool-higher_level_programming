@@ -13,11 +13,11 @@ if __name__ == "__main__":
     elif len(sys.argv) == 2:
         da = {"q": sys.argv[1]}
     r = requests.post("http://0.0.0.0:5000/search_user", data=da)
-    try:
-        if json.loads(r.text) == {}:
+    f r.headers.get('content-type') != "application/json":
+        print("Not a valid JSON")
+    else:
+        if not r.json():
             print("No result")
         else:
-            print("[{}] {}".format(json.loads(r.text)['id'],
-                                   json.loads(r.text)['name']))
-    except ValueError:
-            print("Not a valid JSON")
+            print("[{}] {}".format(r.json()['id'],
+                                   r.json()['name']))
