@@ -2,9 +2,9 @@
 """ a Python script that takes in 3 strings and sends
 a search request to the Twitter API
 """
-import requests
 import sys
 import base64
+import requests
 
 
 if __name__ == "__main__":
@@ -26,12 +26,9 @@ if __name__ == "__main__":
     search_url = '{}1.1/search/tweets.json'.format(base_url)
     search_resp = requests.get(search_url, headers=search_headers,
                                params=search_params)
-#    print(search_resp.json()['statuses'][0]['id'])
-#    print(search_resp.json()['statuses'][0]['text'])
-#    print(search_resp.json()['statuses'][0]['user']['name'])
     l = search_resp.json().get('statuses')
-    for i in range(len(l)):
-        tid = l[i].get('id')
-        text = l[i].get('text')
-        u_name = l[i].get('user').get('name')
-        print("[{}] {} by {}".format(tid, text, u_name))
+    for val in l:
+        tid = val.get('id')
+        u_text = val.get('text')
+        u_name = val.get('user').get('name')
+        print("[{}] {} by {}".format(tid, u_text, u_name))
