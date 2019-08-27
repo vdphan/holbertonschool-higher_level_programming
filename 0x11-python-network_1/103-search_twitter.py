@@ -28,7 +28,7 @@ if __name__ == "__main__":
                                params=search_params)
     l = search_resp.json().get('statuses')
     for val in l:
-        tid = val.get('id')
+        t_id = val.get('id')
         u_text = val.get('text')
         u_name = val.get('user').get('name')
-        print("[{}] {} by {}".format(tid, u_text, u_name))
+        print("[{}] {} by {}".format(t_id, u_text, u_name))
