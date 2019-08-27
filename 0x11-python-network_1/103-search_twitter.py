@@ -22,15 +22,14 @@ if __name__ == "__main__":
     auth_resp = requests.post(auth_url, headers=auth_headers, data=auth_data)
     access_token = auth_resp.json()['access_token']
     search_headers = {'Authorization': 'Bearer {}'.format(access_token)}
-    search_params = {'q': sys.argv[3], 'result_type': 'recent',
-                     'count': 5}
+    search_params = {'q': sys.argv[3], 'count': 5}
     search_url = '{}1.1/search/tweets.json'.format(base_url)
     search_resp = requests.get(search_url, headers=search_headers,
                                params=search_params)
 #    print(search_resp.json()['statuses'][0]['id'])
 #    print(search_resp.json()['statuses'][0]['text'])
 #    print(search_resp.json()['statuses'][0]['user']['name'])
-    l = search_resp.json()['statuses']
+    l = search_resp.json().get('statuses')
     for i in range(len(l)):
         tid = l[i].get('id')
         text = l[i].get('text')
