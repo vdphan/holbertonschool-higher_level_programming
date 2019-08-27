@@ -9,6 +9,11 @@ import sys
 if __name__ == "__main__":
     r = requests.get('https://api.github.com/repos/{}/{}/commits'.
                      format(sys.argv[1], sys.argv[2]))
-    for i in range(0, 10):
-        print("{}: {}".format(r.json()[i]['sha'],
-                              r.json()[i]['commit']['author']['name']))
+    if len(r.json()) >= 10:
+        for i in range(0, 10):
+            print("{}: {}".format(r.json()[i]['sha'],
+                                  r.json()[i]['commit']['author']['name']))
+    else:
+        for i in range(0, len(r.json())):
+            print("{}: {}".format(r.json()[i]['sha'],
+                                  r.json()[i]['commit']['author']['name']))
