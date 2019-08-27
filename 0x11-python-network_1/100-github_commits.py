@@ -12,8 +12,10 @@ if __name__ == "__main__":
     if len(r.json()) >= 10:
         for i in range(0, 10):
             print("{}: {}".format(r.json()[i].get('sha'),
-                                  r.json()[i].get('commit')['author']['name']))
+                                  r.json()[i].get('commit').
+                                  get('author').get('name')))
     else:
         for i in range(0, len(r.json())):
             print("{}: {}".format(r.json()[i].get('sha'),
-                                  r.json()[i].get('commit')['author']['name']))
+                                  r.json()[i].get('commit').
+                                  get('author').get('name')))
