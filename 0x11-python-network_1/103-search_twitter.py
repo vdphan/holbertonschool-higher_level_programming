@@ -32,7 +32,7 @@ if __name__ == "__main__":
 #    print(search_resp.json()['statuses'][0]['user']['name'])
     l = search_resp.json()['statuses']
     for i in range(len(l)):
-        tid = l[i]['id']
-        text = l[i]['text']
-        u_name = l[i]['user']['name']
+        tid = l[i].get('id')
+        text = l[i].get('text')
+        u_name = l[i].get('user').get('name')
         print("[{}] {} by {}".format(tid, text, u_name))
