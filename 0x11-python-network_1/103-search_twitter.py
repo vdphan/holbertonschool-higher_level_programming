@@ -20,7 +20,7 @@ if __name__ == "__main__":
                     'application/x-www-form-urlencoded;charset=UTF-8'}
     auth_data = {'grant_type': 'client_credentials'}
     auth_resp = requests.post(auth_url, headers=auth_headers, data=auth_data)
-    access_token = auth_resp.json()['access_token']
+    access_token = auth_resp.json().get('access_token')
     search_headers = {'Authorization': 'Bearer {}'.format(access_token)}
     search_params = {'q': sys.argv[3], 'count': 5}
     search_url = '{}1.1/search/tweets.json'.format(base_url)
