@@ -69,7 +69,7 @@ What you should learn from this project:
 
 
 ### [13. ByteCode -> Python #1](./102-magic_calculation.py)
-* Write the Python function def magic_calculation(a, b): that does exactly the same as the following Python bytecode:
+* Write the Python function def magic_calculation(a, b): that does exactly the same as the following Python bytecode.
 
 ---
 
