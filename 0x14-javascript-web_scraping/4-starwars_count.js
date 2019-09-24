@@ -10,8 +10,10 @@ request.get(process.argv[2], function (error, response, body) {
   } else {
     const b = JSON.parse(body);
     for (const item of b.results) {
-      if (item.characters.includes('https://swapi.co/api/people/18/')) {
-        c++;
+      for (let i = 0; i < item.characters.length; i++) {
+        if (item.characters[i].includes('/18/')) {
+          c++;
+        }
       }
     }
     console.log(c);
