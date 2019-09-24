@@ -23,6 +23,8 @@ This repository contains projects written in Python, MySQL and JavaScript for th
 | [0x0E-python-sql-more-queries](0x0E-SQL_more_queries) | Implementation of joins and unions in MySQL |
 | [0x0F-python-object-relational-mapping](./0x0F-python-object_relational_mapping) | Practice ORM with MySQLdb and MySQLAlchemy in Python script |
 | [0x12. Javascript - Warm up](./0x12-javascript-warm_up) |  An introduction to JavaScript programming language |
+| [0x13. Javascript - Objects, Scopes and Closures](./0x13-javascript_objects_scopes_closures) |  Practice Objects, Inheritance, Scopes and Closures in JavaScript |
+
 
 ## Author
 
