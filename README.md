@@ -1,6 +1,6 @@
 # Higher Level Programming
 
-This repository contains projects written in Python, MySQL and JavaScript for the Higher Level Programming curriculum at Holberton School.
+This repository contains projects written in Python, MySQL and JavaScript for the Higher Level Programming curriculum at Holberton School
 
 | Project | Description |
 | :--- | :--- |
