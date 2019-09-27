@@ -8,7 +8,7 @@ $( document ).ready(function() {
     });
 
     $('INPUT#language_code').on('keypress', function (e) {
-        if(e.which == 13){
+        if(e.which === 13){
             $('INPUT#btn_translate').click();
         }
     });
