@@ -25,7 +25,7 @@ This repository contains projects written in Python, MySQL and JavaScript for th
 | [0x12. Javascript - Warm up](./0x12-javascript-warm_up) |  An introduction to JavaScript programming language |
 | [0x13. Javascript - Objects, Scopes and Closures](./0x13-javascript_objects_scopes_closures) |  Practice Objects, Inheritance, Scopes and Closures in JavaScript |
 | [0x14. Javascript - Web scraping](./0x14-javascript-web_scraping) | Implementation of request module and Working with JSON data in JavaScript |
-
+| [0x15. Javascript - Web JQuery](./0x15-javascript-web_jquery) | Introduction to JQuery and how to apply it |
 
 ## Author
 
